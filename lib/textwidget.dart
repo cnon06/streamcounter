@@ -3,9 +3,10 @@ import 'package:streamcounter/counterviewmodel.dart';
 
 class TextWidget extends StatelessWidget {
   
- final myCounterViewModel;
+final CounterViewModel myCounterViewModel;
+
   
-  TextWidget({required this.myCounterViewModel});
+  const TextWidget({super.key, required this.myCounterViewModel});
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +16,9 @@ class TextWidget extends StatelessWidget {
          StreamBuilder(
             stream: myCounterViewModel.myCounterStream,
             builder: (context, snapshot) {
-              return  Text(snapshot.hasData ? snapshot.data.toString():'no data', style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),);
+              return  Text(snapshot.hasData ? snapshot.data.toString():'no data', style: const TextStyle(fontSize: 40, fontWeight: FontWeight.bold),);
             }),
-            SizedBox(height: 25,),
+            const SizedBox(height: 25,),
       ],
     );
     
